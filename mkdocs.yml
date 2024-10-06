@@ -1,0 +1,5 @@
+site_name: 'Complete Minecraft Server Guide'
+theme:
+  name: 'material'
+nav:
+  - Home: index.md
