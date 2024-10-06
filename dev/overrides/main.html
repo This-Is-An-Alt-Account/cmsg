@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    .dev-banner {
+      background-color: #ff0000;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    body {
+      padding-top: 40px; /* Adjust this to match the banner height */
+    }
+  </style>
+  <script>
+    // Add a banner if the path contains 'dev'
+    if (window.location.pathname.includes('/dev/')) {
+      const banner = document.createElement('div');
+      banner.className = 'dev-banner';
+      banner.innerHTML = 'WARNING! - You are viewing the development version of this site. You should not use anything on this page unless you meant to be here. <a href="/">Click here</a> to go back to the main page.';
+      document.body.prepend(banner);
+    }
+  </script>
+{% endblock %}
