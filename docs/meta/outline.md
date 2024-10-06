@@ -1,5 +1,5 @@
 ---
-title: Outline
+title: Guide Outline
 ---
 
 This is a rough outline that should show all parts of the guide and their sections and sub-sections.
