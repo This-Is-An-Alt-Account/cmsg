@@ -8,6 +8,9 @@ This is an open-source documentation project with the goal of creating an expans
 
 Though the name implies the guide is strictly about Minecraft servers, the guide should cover information that is relevant to the creation and upkeep of a server.
 
+## Read the Guide
+The guide is available at:<br>https://this-is-an-alt-account.github.io/cmsg/
+
 ## Goals of This Project
 - Be easy to read and comprehend.
 - Cater to those of all skill and experience levels.
