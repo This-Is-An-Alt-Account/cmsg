@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    .dev-banner {
+      background-color: #ff0000 !important;
+      color: white !important;
+      text-align: center;
+      font-size: .8rem;
+      font-weight: bold;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 2px solid black;
+    }
+    .dev-banner a {
+      text-decoration: underline;
+    }
+    body {
+      transition: padding-top 0.3s ease;
+    }
+    
+    #close-banner {
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-left: 15px;
+    }
+    #close-banner:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      // If on the dev site...
+      if (window.location.pathname.includes('/dev/')) {
+        // Add warning banner.
+        const banner = document.createElement('div');
+        banner.className = 'dev-banner';
+        banner.innerHTML = 'WARNING! - You are viewing the development version of this site. You should not use anything on this page unless you meant to be here. <a href="/cmsg">Click here</a> to go back to the main page. <button id="close-banner">Close</button>';
+        document.body.prepend(banner);
+
+        // Ajdust body padding based off dev warning above.
+        const adjustBodyPadding = () => {
+          const bannerHeight = banner.offsetHeight;
+          document.body.style.paddingTop = `${bannerHeight}px`;
+        };
+        adjustBodyPadding();
+        //Adjust on resize.
+        window.addEventListener('resize', adjustBodyPadding);
+        // Adjust on banner close.
+        document.getElementById('close-banner').addEventListener('click', () => {
+          banner.remove();  // Remove the banner
+          document.body.style.paddingTop = '0';  // Reset body padding
+        });
+      }
+    });
+  </script>
+{% endblock %}

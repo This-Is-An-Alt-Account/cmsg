@@ -1,6 +1,7 @@
 site_name: 'Complete Minecraft Server Guide'
 theme:
   name: 'material'
+  custom_dir: docs/overrides
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
