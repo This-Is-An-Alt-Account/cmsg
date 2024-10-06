@@ -32,7 +32,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           # Deploy to root for main
-          destination_dir: /
+          destination_dir: .
 
   deploy-dev:
     if: github.ref == 'refs/heads/dev'
@@ -60,4 +60,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           # Deploy to /dev/ for the dev version
-          destination_dir: /dev
+          destination_dir: dev
