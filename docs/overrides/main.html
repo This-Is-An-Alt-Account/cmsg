@@ -4,8 +4,8 @@
   {{ super() }}
   <style>
     .dev-banner {
-      background-color: #ff0000;
-      color: white;
+      background-color: #ff0000 !important;
+      color: white !important;
       text-align: center;
       font-weight: bold;
       padding: 10px;
@@ -13,9 +13,13 @@
       top: 0;
       width: 100%;
       z-index: 1000;
+      border-bottom: 2px solid black;
+    }
+    .dev-banner a {
+      text-decoration: underline;
     }
     body {
-      padding-top: 40px; /* Adjust this to match the banner height */
+      padding-top: 60px;
     }
   </style>
   <script>
