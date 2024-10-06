@@ -55,6 +55,7 @@
       background-color: #ff0000 !important;
       color: white !important;
       text-align: center;
+      font-size: .8rem;
       font-weight: bold;
       padding: 10px;
       position: fixed;
@@ -66,27 +67,25 @@
     .dev-banner a {
       text-decoration: underline;
     }
-    body {
-      padding-top: 60px;
-    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
-      console.log('DOM fully loaded and parsed');
-      
-      // Check if the page is being served from the dev path
+      // If on the dev site...
       if (window.location.pathname.includes('/dev/')) {
-        console.log('Dev path detected. Adding banner...');
-        
+        // Add warning banner.
         const banner = document.createElement('div');
         banner.className = 'dev-banner';
-        banner.innerHTML = 'WARNING! - You are viewing the development version of this site. You should not use anything on this page unless you meant to be here. <a href="/">Click here</a> to go back to the main page.';
-        // Add banner to the body
+        banner.innerHTML = 'WARNING! - You are viewing the development version of this site. You should not use anything on this page unless you meant to be here. <a href="/">Click here</a> to go back to the main page. <button onclick="this.parentElement.remove();">Close</button>';
         document.body.prepend(banner);
-        
-        console.log('Banner added to the DOM.');
-      } else {
-        console.log('Not on the dev path. No banner added.');
+
+        // Ajdust body padding based off dev warning above.
+        const adjustBodyPadding = () => {
+          const bannerHeight = banner.offsetHeight;
+          document.body.style.paddingTop = `${bannerHeight}px`;
+        };
+
+        adjustBodyPadding();
+        window.addEventListener('resize', adjustBodyPadding);
       }
     });
   </script>
